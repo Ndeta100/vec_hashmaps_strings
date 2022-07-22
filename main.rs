@@ -19,4 +19,36 @@ fn main() {
         let scope_v = vec![1, 2, 4, 5, 67, 8, 9];
         //Do stuff with vec
     } //vec goes out of scope and is freed here
+    loop_vec();
+    vector_eum();
+}
+fn loop_vec() {
+    //Immutable
+    let v = vec![1, 2, 3, 4, 5, 6, 7, 5];
+    for c in &v {
+        println!("{}", c);
+    }
+    //mutable
+    let mut v_1 = vec![2, 35, 6, 7, 7];
+    for f in &mut v_1 {
+        *f += 10;
+        println!("{}", f);
+    }
+}
+
+#[derive(Debug)]
+enum SpreadsheeCell {
+    Int(i32),
+    Float(f32),
+    text(String),
+}
+fn vector_eum() {
+    let row = vec![
+        SpreadsheeCell::Int(4),
+        SpreadsheeCell::Float(3.4),
+        SpreadsheeCell::text(String::from("Ndeta")),
+    ];
+    for sheet in &row {
+        println!("Here is the sheet {:?}", sheet);
+    }
 }
